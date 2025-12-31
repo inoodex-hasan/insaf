@@ -1,34 +1,8 @@
 import React from "react";
 import { Star, Quote } from "lucide-react";
 
-export default function StudentReviews() {
-  const reviews = [
-    {
-      name: "Abu Bakar Siddiq",
-      text: "My journey until getting the visa wasn't smooth at the beginning. However, when I came to PFEC, all confusion moved away. Thank PFEC from the bottom of my heart. I will be forever grateful for your dedicated team regarding SOP and others.",
-      rating: 5,
-    },
-    {
-      name: "Shourav Islam Tonmoy",
-      text: "Alhamdulillah! My visa request for Australia was accepted yesterday. Without PFEC Global, the adventure would not have been possible at all. They didn't let me down, so I maintained having faith in them. I will certainly never forget the level of professionalism they demonstrated.",
-      rating: 5,
-    },
-    {
-      name: "Tanvir Ahmed Shishir",
-      text: "I got a visa on 4th January within 7 days through PFEC Global. I think this is the best leading agency in Bangladesh for students. An amazing organisation with a bunch of team members who are extremely helpful throughout the whole process.",
-      rating: 5,
-    },
-    {
-      name: "Faisal Nazib",
-      text: "Great Service! They helped me with everything from decision making, applying, SOP, visa, and all my personal queries. Overall, a must visit place if you're planning to study in Australia.",
-      rating: 5,
-    },
-    {
-      name: "Tahsin Nirzhar",
-      text: "Me and my spouse got our student visa from PFEC for Australia. They’re very professional and worked with diligence. They were there when needed and provided correct and factual guidance throughout the process.",
-      rating: 5,
-    },
-  ];
+export default function StudentReviews({reviews}) {
+  // console.log(reviews);
 
   return (
     <section
@@ -64,22 +38,22 @@ export default function StudentReviews() {
 
               <div className="relative">
                 {/* Quote Icon */}
-                <Quote className="w-12 h-12 text-[#c3a25d] opacity-30 absolute -top-4 -left-4" />
+                {/* <Quote className="w-12 h-12 text-[#c3a25d] opacity-30 absolute -top-4 -left-4" /> */}
 
                 {/* Review Text */}
                 <p className="text-white/90 text-lg leading-relaxed mb-6 italic">
-                  "{review.text}"
+                  <img src={review.image_path} alt="image" />
                 </p>
 
                 {/* Stars */}
-                <div className="flex gap-1 mb-4">
+                {/* <div className="flex gap-1 mb-4">
                   {[...Array(review.rating)].map((_, i) => (
                     <Star
                       key={i}
                       className="w-6 h-6 fill-[#c3a25d] text-[#c3a25d]"
                     />
                   ))}
-                </div>
+                </div> */}
 
                 {/* Reviewer Name */}
                 <div className="flex items-center justify-between">
@@ -101,7 +75,7 @@ export default function StudentReviews() {
         </div>
 
         {/* Trust Badge */}
-        <div className="mt-20 text-center">
+        {/* <div className="mt-20 text-center">
           <div className="inline-flex items-center gap-6 bg-white/10 backdrop-blur-md rounded-full px-10 py-6 border border-white/30">
             <div className="flex -space-x-2">
               {[...Array(5)].map((_, i) => (
@@ -120,7 +94,7 @@ export default function StudentReviews() {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

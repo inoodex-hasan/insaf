@@ -1,50 +1,51 @@
 import React from "react";
-import destinationImg from "../../assets/destination.webp";
+import destinationImg from "../../assets/destination.png";
 import { ArrowRight, GraduationCap } from "lucide-react";
 import accimg from "../../assets/services/accomodation.webp";
 
 import FAQAccordion from "../../components/FAQAccordion";
 import AccommodationProvidersSection from "../../components/srvices/AccommodationProvidersSection";
 import FactorsSection from "../../components/srvices/FactorsSection";
+import { Link } from "@inertiajs/react";
 
-const Accomodation = (service) => {
-  // console.log(service); 
-  const stats = [
-    { number: "22,000+", label: "Students Assisted", color: "#c3a25d" },
-    {
-      number: "550+",
-      label: "Institutions across 11 Countries",
-      color: "#283e77",
-    },
-    { number: "18+", label: "Years of Experience", color: "#c3a25d" },
-    { number: "9", label: "Offices across the Globe", color: "#283e77" },
-  ];
-  const accommodationProviders = [
-  {
-    id: 1,
-    name: "Casita",
-    logo: accimg,
-    url: "https://www.casita.com",
-    features: [
-      { icon: "📊", text: "Properties in 400+ Cities across 60+ Countries" },
-      { icon: "💎", text: "Low Price Guarantee" },
-      { icon: "✓", text: "100% Verified Listings" },
-      { icon: "🔔", text: "24/7 Customer Support" },
-    ],
-  },
-  {
-    id: 2,
-    name: "University Living",
-    logo: accimg,
-    url: "#",
-    features: [
-      { icon: "📊", text: "65000+ Properties across 640 Cities Globally" },
-      { icon: "🔒", text: "Safe & Secure Options" },
-      { icon: "✓", text: "Verified Listings" },
-      { icon: "🔔", text: "24/7 Customer Support" },
-    ],
-  },
-]
+const Accomodation = ({service}) => {
+  console.log(service); 
+//   const stats = [
+//     { number: "22,000+", label: "Students Assisted", color: "#c3a25d" },
+//     {
+//       number: "550+",
+//       label: "Institutions across 11 Countries",
+//       color: "#283e77",
+//     },
+//     { number: "18+", label: "Years of Experience", color: "#c3a25d" },
+//     { number: "9", label: "Offices across the Globe", color: "#283e77" },
+//   ];
+//   const accommodationProviders = [
+//   {
+//     id: 1,
+//     name: "Casita",
+//     logo: accimg,
+//     url: "https://www.casita.com",
+//     features: [
+//       { icon: "📊", text: "Properties in 400+ Cities across 60+ Countries" },
+//       { icon: "💎", text: "Low Price Guarantee" },
+//       { icon: "✓", text: "100% Verified Listings" },
+//       { icon: "🔔", text: "24/7 Customer Support" },
+//     ],
+//   },
+//   {
+//     id: 2,
+//     name: "University Living",
+//     logo: accimg,
+//     url: "#",
+//     features: [
+//       { icon: "📊", text: "65000+ Properties across 640 Cities Globally" },
+//       { icon: "🔒", text: "Safe & Secure Options" },
+//       { icon: "✓", text: "Verified Listings" },
+//       { icon: "🔔", text: "24/7 Customer Support" },
+//     ],
+//   },
+// ]
 
   return (
     <>
@@ -79,10 +80,12 @@ const Accomodation = (service) => {
 
               {/* CTA Button */}
               <div className="flex flex-col sm:flex-row gap-6 pt-6">
-                <button className="group inline-flex items-center justify-center gap-4 px-10 py-5 bg-gold hover:bg-[#d4b870] text-white font-bold text-lg rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300">
+                <a href="https://wa.me/8801531385988?text=I%20would%20like%20to%20book%20an%20event"
+                    target="_blank" 
+                    className="group inline-flex items-center justify-center gap-4 px-10 py-5 bg-gold hover:bg-[#d4b870] text-white font-bold text-lg rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300">
                   Book a FREE Consultation Now
                   <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
-                </button>
+                </a>
               </div>
             </div>
 
@@ -126,47 +129,46 @@ const Accomodation = (service) => {
       Choose from Reliable Accommodation Providers
     </h2>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {accommodationProviders.map((provider) => (
-        <div
-          key={provider.id}
-          className="bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center text-center transition-transform hover:scale-105"
-        >
-          {/* Logo */}
-          <div className="mb-6">
-            <img
-              src={provider.logo}
-              alt={provider.name}
-              className="h-20 object-contain"
-            />
-          </div>
+        <div>
+        {/* Service Title */}
+        <h4 className="text-blue text-3xl font-mont font-semibold">
+          {service?.title}
+        </h4>
 
-          {/* Features */}
-          <div className="grid grid-cols-2 gap-4 mb-8 text-sm">
-            {provider.features.map((feature, index) => (
-              <div key={index} className="flex items-center gap-2 text-left">
-                <span className="text-red-600 text-xl">
-                  {feature.icon}
-                </span>
-                <span className="text-black font-mont text-sm">
-                  {feature.text}
-                </span>
+        {/* Loop items */}
+        {service?.items?.map((item) => (
+          <div key={item.id} className="mt-4">
+
+            {/* Item title */}
+            <h5 className="text-black font-semibold font-mont mt-4">
+              {item.title}
+            </h5>
+
+            {/* Item sections */}
+            {item.sections?.map((section) => (
+              <div key={section.id} className="mt-3">
+
+                {/* First image only (to keep design same) */}
+                {section.images?.[0] && (
+                  <img
+                    src={`/${section.images[0]}`}
+                    alt=""
+                    className="mt-3 rounded-lg shadow-lg w-full h-auto"
+                  />
+                )}
+
+                {/* Description (HTML safe) */}
+                <div
+                  className="text-sm text-black font-normal font-mont mt-3 space-y-2"
+                  dangerouslySetInnerHTML={{
+                    __html: section.description,
+                  }}
+                />
               </div>
             ))}
           </div>
-
-          {/* Button */}
-          <a
-            href={provider.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-8 py-3 bg-[#c3a25d] text-white font-semibold rounded-full hover:bg-[#283e77] transition-colors"
-          >
-            Explore Now →
-          </a>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
   </div>
 </section>
 
@@ -224,7 +226,7 @@ const Accomodation = (service) => {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+          {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
                 <div
@@ -236,12 +238,13 @@ const Accomodation = (service) => {
                 <div className="text-gray-600 mt-2">{stat.label}</div>
               </div>
             ))}
-          </div>
+          </div> */}
 
           {/* CTA Button */}
           <div className="text-center">
             <a
-              href="#"
+              href="https://wa.me/8801531385988?text=I%20would%20like%20to%20book%20an%20event"
+               target="_blank"
               className="inline-flex items-center px-10 py-4 bg-[#c3a25d] text-white font-semibold text-lg rounded-full hover:bg-[#283e77] transition-all shadow-xl"
             >
               Book a Free Consultation →

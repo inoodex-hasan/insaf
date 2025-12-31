@@ -52,7 +52,7 @@ const SuccessGallery = ({ successcount }) => {
                 <div className="text-center mb-16">
                     <h2 className="text-6xl lg:text-5xl font-black text-blue mb-4">
                         <span className="text-transparent bg-clip-text bg-linear-to-r from-gold via-[#d4b86b] to-gold">
-                            {successcount}+
+                            {successcount.students}+
                         </span>
                     </h2>
                     <p className="text-3xl lg:text-4xl font-bold text-blue/90">
@@ -108,7 +108,8 @@ const SuccessGallery = ({ successcount }) => {
             
                 <div className="text-center mt-16">
                     <a
-                        href="#"
+                        href="https://wa.me/8801531385988?text=I%20would%20like%20to%20book%20an%20event"
+                        target="_blank"
                         className="inline-flex items-center gap-4 px-12 py-6 rounded-full bg-blue text-white text-xl font-bold 
               shadow-2xl hover:bg-[#c3a25d] hover:shadow-[#c3a25d]/30 transition-all duration-500 hover:scale-110"
                     >

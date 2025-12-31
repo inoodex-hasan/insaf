@@ -1,5 +1,5 @@
 import React from "react";
-import destinationImg from "../../assets/destination.webp";
+import destinationImg from "../../assets/destination.png";
 import { ArrowRight, GraduationCap } from "lucide-react";
 import Form from "../../components/form/Form";
 import service2 from "../../assets/services/service2.jpg";
@@ -15,6 +15,7 @@ import WhyStudentHealthCover from "../../components/srvices/WhyStudentHealthCove
 import HowToChooseHealthPlan from "../../components/srvices/HowToChooseHealthPlan";
 
 const HealthInsurance = ({service}) => {
+  console.log()
   return (
     <>
       {/* page header section  */}
@@ -50,10 +51,12 @@ const HealthInsurance = ({service}) => {
 
               {/* CTA Button */}
               <div className="flex flex-col sm:flex-row gap-6 pt-6">
-                <button className="group inline-flex items-center justify-center gap-4 px-10 py-5 bg-gold hover:bg-[#d4b870] text-white font-bold text-lg rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300">
+                <a href="https://wa.me/8801531385988?text=I%20would%20like%20to%20book%20an%20event"
+                    target="_blank"
+                 className="group inline-flex items-center justify-center gap-4 px-10 py-5 bg-gold hover:bg-[#d4b870] text-white font-bold text-lg rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300">
                   Book a FREE Consultation Now
                   <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
-                </button>
+                </a>
               </div>
             </div>
 
@@ -99,33 +102,45 @@ const HealthInsurance = ({service}) => {
     <div className="grid grid-cols-2 gap-4">
 
       {/* LEFT CONTENT */}
-      <div>
-        <h4 className="text-blue text-lg font-mont font-semibold">
+         <div>
+        {/* Service Title */}
+        <h4 className="text-blue text-3xl font-mont font-semibold">
           {service?.title}
         </h4>
-         {service?.items?.[0]?.sections?.[0]?.images?.[0] && (
+
+        {/* Loop items */}
+        {service?.items?.map((item) => (
+          <div key={item.id} className="mt-4">
+
+            {/* Item title */}
+            <h5 className="text-black font-semibold font-mont mt-4">
+              {item.title}
+            </h5>
+
+            {/* Item sections */}
+            {item.sections?.map((section) => (
+              <div key={section.id} className="mt-3">
+
+                {/* First image only (to keep design same) */}
+                {section.images?.[0] && (
                   <img
-                    src={`/${service.items[0].sections[0].images[0]}`}
-                    alt="Visa Service Image"
-                    className="w-full h-auto object-cover"
+                    src={`/${section.images[0]}`}
+                    alt=""
+                    className="mt-3 rounded-lg"
                   />
                 )}
-        <div className="mt-4">
-          {service?.items?.map((item) => (
-            <div key={item.id} className="mb-4">
-              {item.sections?.map((section) => (
-                <p
-                  key={section.id}
-                  className="text-sm text-black font-normal font-mont mt-2"
+
+                {/* Description (HTML safe) */}
+                <div
+                  className="text-sm text-black font-normal font-mont mt-3 space-y-2"
                   dangerouslySetInnerHTML={{
-                    __html: section.description
+                    __html: section.description,
                   }}
                 />
-              ))}
-            </div>
-            
-          ))}
-        </div>
+              </div>
+            ))}
+          </div>
+        ))}
       </div>
 
       {/* RIGHT FORM */}

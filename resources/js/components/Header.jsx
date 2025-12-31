@@ -136,14 +136,16 @@ const Header = () => {
                     </ul>
 
                     {/* Desktop Button */}
-                    <div className="hidden lg:block">
-                        <button
-                            onClick={() => setIsModalOpen(true)}
-                            className="px-6 py-3 bg-blue hover:bg-gold text-white font-medium rounded-lg transition-colors"
-                        >
-                            Register Now
-                        </button>
-                    </div>
+                   <div className="hidden lg:block">
+    <a
+        href="https://wa.me/8801531385988?text=I%20would%20like%20to%20book%20an%20event"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="px-6 py-3 bg-blue hover:bg-gold text-white font-medium rounded-lg transition-colors inline-block"
+    >
+        Book Now
+    </a>
+</div>
 
                     {/* Mobile Hamburger */}
                     <button onClick={toggleMobileMenu} className="lg:hidden">
@@ -232,19 +234,20 @@ const Header = () => {
                         {/* Mobile Button */}
                         <div className="mt-8">
                             <Link
-                                href="/contact-us"
+                                href="https://wa.me/8801531385988?text=I%20would%20like%20to%20book%20an%20event"
+                                target="_blank"
                                 onClick={toggleMobileMenu}
                                 className="block w-full text-center px-8 py-4 bg-[#283e77] hover:bg-[#c3a25d] text-white font-semibold rounded-lg transition-colors"
                             >
-                                Register Now
+                                Book Now
                             </Link>
                         </div>
                     </div>
                 </div>
             </div>
-            <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+            {/* <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
                 <Form />
-            </Modal>
+            </Modal> */}
         </header>
     );
 };

@@ -95,8 +95,8 @@ import { Link } from "@inertiajs/react";
 //   { country: "Malaysia", landmark: dest3, delay: 300 },
 // ];
 
-export default function Scholarship({scholarships, destinations, scholarship_items, successcount}) {
-  // console.log(scholarships);
+export default function Scholarship({scholarships, destinations, scholarship_items, successcount, whyChooseUs}) {
+  // console.log(successcount);
   return (
     <>
       <section className="py-24 px-6 bg-linear-to-b from-white to-slate-50 overflow-hidden">
@@ -217,7 +217,7 @@ export default function Scholarship({scholarships, destinations, scholarship_ite
       </section>
       <CounselingSection />
       <SuccessGallery successcount={successcount}/>
-      <AboutScholarshipInsaf />
+      <AboutScholarshipInsaf successcount={successcount} />
     </>
   );
 }

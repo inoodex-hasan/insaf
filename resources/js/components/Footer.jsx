@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../assets/logo/logo.png";
+import { FaWhatsapp } from "react-icons/fa";
 import underlogo from "../assets/footer/underlogo.svg";
 import title1 from "../assets/footer/title1.svg";
 import title2 from "../assets/footer/title2.svg";
@@ -8,12 +9,87 @@ import title4 from "../assets/footer/title4.svg";
 import footerbg from "../assets/footer/footer-bg.png";
 import OfficeLocations from "./OfficeLocations";
 import { Facebook, Linkedin, Send, Twitter, Youtube } from "lucide-react";
-import { usePage } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 const Footer = () => {
+       const navItems = [
+        {
+            id: 1,
+            title: "About us",
+            url: "/about-insaf",
+        },
+        {
+            id: 2,
+            title: "Destination",
+            url: "/study_destinations",
+       
+        },
+        {
+            id: 3,
+            title: "Our Services",
+            url: "/",
+       
+        },
+        {
+            id: 4,
+            title: "blogs",
+            url: "/blogs", 
+        },
+
+        {
+            id: 5,
+            title: "Scholarships",
+            url: "/scholarship",
+      
+        },
+
+        {
+            id: 6,
+            title: "Contact us",
+            url: "/contact-us",
+        },
+    ];
+
+    const services =      [
+                {
+                    id: 31,
+                    title: "Admission Support",
+                    url: "/admission-support",
+                },
+                { id: 32, title: "Health Insurance", url: "/health-insurance" },
+                {
+                    id: 33,
+                    title: "Student Accommodation",
+                    url: "/accomodation",
+                },
+                { id: 34, title: "Visa Service", url: "/visa-service" },
+            ]
         const {offices} = usePage().props;
         // console.log(offices);
     return (
         <footer>
+          <div className="fixed bottom-6 right-6 z-50">
+  <a
+    href="https://wa.me/8801531385988?text=I%20would%20like%20to%20book%20an%20event"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-[#25D366] p-4 shadow-lg transition-all duration-300 ease-out hover:scale-110 hover:shadow-2xl"
+  >
+    {/* Pulse animation ring */}
+    <span className="absolute inset-0 animate-ping rounded-full bg-[#25D366] opacity-75"></span>
+    
+    {/* Main button content */}
+    <div className="relative flex items-center gap-3 px-2 py-0 leading-none">
+      <FaWhatsapp className="text-white text-3xl" />
+      
+      {/* Text visible on larger screens */}
+      <span className="hidden text-white font-medium tracking-wide sm:inline-block">
+        Chat 
+      </span>
+    </div>
+    
+    
+  </a>
+</div>
             <OfficeLocations offices={offices} />
             <div className="relative bg-cover w-full h-full bg-center bg-no-repeat  bg-[#EEEEEE] ">
                 <div className="container py-[50px]">
@@ -80,26 +156,18 @@ const Footer = () => {
                                     />
                                 </div>
                                 <div className="flex flex-col gap-5">
-                                    {[
-                                        "Home",
-                                        "About Us",
-                                        "Visa",
-                                        "Service",
-                                        "Countries",
-                                        "Coaching",
-                                        "Blog",
-                                    ].map((quickItem, index) => (
+                                    {navItems.map((quickItem, index) => (
                                         <div
                                             className="gap-[3px] flex justify-start items-center"
                                             key={index}
                                         >
                                             <i className="text-secondary-light text-subtitle2 ri-shield-star-fill"></i>
-                                            <a
-                                                href="index-2.html"
+                                            <Link
+                                                href={`${quickItem.url}`}
                                                 className="text-lg font-medium text-black/70  transition-all duration-300 ease-linear leading-[18px]"
                                             >
-                                                {quickItem}
-                                            </a>
+                                                {quickItem.title}
+                                            </Link>
                                         </div>
                                     ))}
                                 </div>
@@ -116,26 +184,18 @@ const Footer = () => {
                                     />
                                 </div>
                                 <div className="flex flex-col gap-5">
-                                    {[
-                                        "Home",
-                                        "About Us",
-                                        "Visa",
-                                        "Service",
-                                        "Countries",
-                                        "Coaching",
-                                        "Blog",
-                                    ].map((quickItem, index) => (
+                                    {services.map((quickItem, index) => (
                                         <div
                                             className="gap-[3px] flex justify-start items-center"
                                             key={index}
                                         >
                                             <i className="text-secondary-light text-subtitle2 ri-shield-star-fill"></i>
-                                            <a
-                                                href="index-2.html"
+                                            <Link
+                                                href={`${quickItem.url}`}
                                                 className="text-lg font-medium  text-black/70  transition-all duration-300 ease-linear leading-[18px]"
                                             >
-                                                {quickItem}
-                                            </a>
+                                                {quickItem.title}
+                                            </Link>
                                         </div>
                                     ))}
                                 </div>

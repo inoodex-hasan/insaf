@@ -1,5 +1,5 @@
 import { ArrowRight, Phone, GraduationCap } from "lucide-react";
-import destinationImg from "../assets/destination.webp";
+import destinationImg from "../assets/destination.png";
 import detailimg from "../assets/destinations/detials1.webp";
 import livingCost from "../assets/destinations/living-cost.png";
 import uni1 from "../assets/partner/1.png";
@@ -97,10 +97,12 @@ export default function StudyInDestination({ destination, whyChoose, destination
 
               {/* CTA Button */}
               <div className="flex flex-col sm:flex-row gap-6 pt-6">
-                <button className="group inline-flex items-center justify-center gap-4 px-10 py-5 bg-[#c3a25d] hover:bg-[#d4b870] text-white font-bold text-lg rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300">
+                <a href="https://wa.me/8801531385988?text=I%20would%20like%20to%20book%20an%20event"
+                    target="_blank"
+                      className="group inline-flex items-center justify-center gap-4 px-10 py-5 bg-[#c3a25d] hover:bg-[#d4b870] text-white font-bold text-lg rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300">
                   Book a FREE Consultation Now
                   <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
-                </button>
+                </a>
               </div>
 
               {/* Trust Indicators */}
@@ -112,8 +114,8 @@ export default function StudyInDestination({ destination, whyChoose, destination
                   <span>Years Experience</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-[#c3a25d] rounded-full flex items-center justify-center text-[#283e77] font-bold">
-                    {whyChoose?.[0].students ?? 0}K+
+                  <div className="w-auto h-10 bg-[#c3a25d] px-2 rounded-full flex items-center justify-center text-[#283e77] font-bold">
+                    {whyChoose?.[0].students ?? 0}+
                   </div>
                   <span>Students Placed</span>
                 </div>

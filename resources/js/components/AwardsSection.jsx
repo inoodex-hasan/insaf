@@ -4,6 +4,7 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { Link } from "@inertiajs/react";
 
 const AwardsSection = ({ achievement }) => {
     // console.log(achievement);
@@ -91,14 +92,14 @@ const AwardsSection = ({ achievement }) => {
 
                 {/* CTA Button */}
                 <div className="text-center mt-12">
-                    <a
-                        href="#"
+                    <Link href='/award-and-achievement'
+                        
                         className="inline-flex items-center gap-3 px-10 py-5 rounded-full 
             bg-gradient-to-r from-[#283e77] to-[#1e2d5a] text-white font-bold text-lg 
             shadow-2xl hover:from-[#c3a25d] hover:to-[#d4b86b] transition-all duration-500 hover:scale-105"
-                    >
+            >
                         Explore All Achievements
-                    </a>
+                    </Link>
                 </div>
             </div>
         </section>

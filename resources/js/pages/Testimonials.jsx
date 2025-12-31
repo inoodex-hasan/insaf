@@ -3,9 +3,11 @@ import { Award } from "lucide-react";
 import VideoTestimonials from "../components/about/VideoTestimonials";
 import StudentReviews from "../components/about/StudentReviews";
 import Achievements from "../components/about/Achievements";
+import SuccessGallery from "../components/SuccessGallery";
 import CounselingSection from "../components/CounselingSection";
 
-const Testimonials = ({ testimonials, reviews, awards }) => {
+const Testimonials = ({ testimonials, reviews, awards, whyChooseUs, successcount }) => {   
+    // console.log(whyChooseUs[0].students);
     return (
         <>
             <section className="relative py-24 overflow-hidden bg-linear-to-br from-blue via-blue/95 to-[#1e2d5c]">
@@ -27,7 +29,7 @@ const Testimonials = ({ testimonials, reviews, awards }) => {
                             </div>
 
                             <h2 className="text-5xl md:text-4xl font-bold leading-tight">
-                                22,000+ Happy Clients, Worldwide!
+                               {whyChooseUs[0]?.students}+  Happy Clients, Worldwide!
                             </h2>
 
                             <p className="text-lg text-center text-gray-200">
@@ -42,7 +44,8 @@ const Testimonials = ({ testimonials, reviews, awards }) => {
             {/* Dynamic Sections */}
             <VideoTestimonials testimonials={testimonials} />
             <StudentReviews reviews={reviews} />
-            <Achievements awards={awards} />
+            {/* <SuccessGallery successcount={successcount} /> */}
+            <Achievements awards={awards} whyChooseUs={whyChooseUs} />
             <CounselingSection />
         </>
     );

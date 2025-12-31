@@ -26,7 +26,7 @@ class SliderController extends Controller
             'title'       => 'required|string|max:255',
             'image'       => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
             'subtitle'    => 'nullable|string',
-            'is_active'   => 'boolean'
+            'is_active'   => 'required|boolean'
         ]);
 
         $data = $request->all();
@@ -55,11 +55,11 @@ class SliderController extends Controller
             'title'       => 'required|string|max:255',
             'image'       => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
             'subtitle'    => 'nullable|string',
-            'is_active'   => 'boolean'
+            'is_active'   => 'required|boolean'
         ]);
 
         $data = $request->all();
-        $data['is_active'] = $request->has('is_active');
+        $data['is_active'] = $request->is_active;
 
         if ($request->hasFile('image')) {
             // Delete old image

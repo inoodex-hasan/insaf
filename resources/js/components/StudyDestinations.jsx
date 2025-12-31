@@ -50,12 +50,12 @@ const StudyDestinations = ({ destinations }) => {
                             INSAF Immigration is a partner of renowned
                             institutions across{" "}
                             <span className="font-semibold text-gold">
-                                11 countries
+                                {destinations.length} countries
                             </span>
                             .
                             <br className="hidden sm:block" />
                             Pick a destination below and learn everything you
-                            need to make an informed decision. hhh
+                            need to make an informed decision.
                         </p>
                     </div>
 
@@ -128,8 +128,9 @@ const StudyDestinations = ({ destinations }) => {
 
                     {/* CTA Button */}
                     <div className="text-center mt-16">
-                        <button
-                            onClick={() => setIsModalOpen(true)}
+                        <a href="https://wa.me/8801531385988?text=I%20would%20like%20to%20book%20an%20event"
+                                target="_blank"
+                            // onClick={() => setIsModalOpen(true)}
                             className="inline-flex items-center gap-3 cursor-pointer bg-blue text-white px-10 py-5 rounded-full font-semibold text-lg shadow-lg hover:bg-[#1e2d5a] hover:shadow-xl transition-all duration-300 hover:scale-105"
                         >
                             <span>Book a FREE Consultation</span>
@@ -146,7 +147,7 @@ const StudyDestinations = ({ destinations }) => {
                                     d="M14 5l7 7m0 0l-7 7m7-7H3"
                                 />
                             </svg>
-                        </button>
+                        </a>
                     </div>
                 </div>
             </section>

@@ -33,8 +33,7 @@ export default function EventDetails({ event }) {
                                         {/* Image with dynamic storage path */}
                                         {section.images && (
                                             <figure className="mt-6">
-                                                <img 
-                                                    src={`/storage/${section.images}`} 
+                                                <img src={`/${section.images}`}
                                                     alt={`${item.title} - section detail`}
                                                     className="w-full rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300" 
                                                     loading="lazy"

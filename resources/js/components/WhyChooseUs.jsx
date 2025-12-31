@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Globe, Users, Building2, Trophy, Sparkles } from "lucide-react";
 
 const WhyChooseUs = ({ Why_Choose_Us }) => {
+    // console.log(Why_Choose_Us);
     const [counters, setCounters] = useState({
         students: 0,
         institutions: 0,
@@ -9,61 +10,53 @@ const WhyChooseUs = ({ Why_Choose_Us }) => {
         years: 0,
     });
 
-    useEffect(() => {
-        if (!Why_Choose_Us || Why_Choose_Us.length === 0) return;
+useEffect(() => {
+    if (!Why_Choose_Us || Why_Choose_Us.length === 0) return;
 
-        const item = Why_Choose_Us[0];
+    const item = Why_Choose_Us[0];
+    const targets = {
+        students: Number(item.students) || 0,
+        institutions: Number(item.partners) || 0,
+        visaRate: Number(item.visa_grants) || 0,
+        years: Number(item.years) || 0,
+    };
 
-        const target = {
-            students: Number(item.students) || 0,
-            institutions: Number(item.partners) || 0,
-            visaRate: Number(item.visa_grants) || 0,
-            years: Number(item.years) || 0,
-        };
+    const duration = 2000;
+    const frameRate = 60;
+    const totalFrames = (duration / 1000) * frameRate;
 
-        const duration = 2000;
-        const steps = 60;
-        const interval = duration / steps;
+    let frame = 0;
 
-        let current = {
-            students: 0,
-            institutions: 0,
-            visaRate: 0,
-            years: 0,
-        };
+    const timer = setInterval(() => {
+        frame++;
+        const progress = frame / totalFrames;
 
-        const timer = setInterval(() => {
-            let completed = true;
+        setCounters({
+            students: Math.min(Math.floor(targets.students * progress), targets.students),
+            institutions: Math.min(Math.floor(targets.institutions * progress), targets.institutions),
+            years: Math.min(Math.floor(targets.years * progress), targets.years),
+            visaRate: Number((targets.visaRate * progress).toFixed(1)),
+        });
 
-            if (current.students < target.students) {
-                current.students += Math.ceil(target.students / steps);
-                completed = false;
-            }
-            if (current.institutions < target.institutions) {
-                current.institutions += Math.ceil(target.institutions / steps);
-                completed = false;
-            }
-            if (current.years < target.years) {
-                current.years += 1;
-                completed = false;
-            }
-            if (current.visaRate < target.visaRate) {
-                current.visaRate += (target.visaRate - 90) / steps;
-                completed = false;
-            }
+        if (frame >= totalFrames) {
+            // Final exact values
+            setCounters({
+                students: targets.students,
+                institutions: targets.institutions,
+                visaRate: targets.visaRate,
+                years: targets.years,
+            });
+            clearInterval(timer);
+        }
+    }, 1000 / frameRate);
 
-            setCounters({ ...current });
-
-            if (completed) clearInterval(timer);
-        }, interval);
-
-        return () => clearInterval(timer);
-    }, [Why_Choose_Us]);
+    return () => clearInterval(timer);
+}, [Why_Choose_Us]);
 
     const stats = [
         {
             icon: Users,
-            value: `${counters.students.toLocaleString()}+`,
+            value: `${counters.students}+`,
             label: "Students Assisted",
             // color: "from-[#c3a25d]/20 to-[#c3a25d]/5",
             color: "bg-blue",

@@ -5,8 +5,8 @@ export default function AboutSection({ aboutItems }) {
   // console.log(aboutItems );
   return (
     <section className="py-20 px-6 lg:px-8 bg-linear-to-b from-white to-blue-50">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="container mx-auto">
+        <div className="">
           {/* Left Column - Text Content */}
           <div className="space-y-8">
             {aboutItems.map((item)=><div key={item?.id}>
@@ -27,13 +27,26 @@ export default function AboutSection({ aboutItems }) {
 
               </p>
             </div>
+              <div className="relative bg-white p-4 md:p-1 rounded-3xl shadow-2xl flex items-center justify-center overflow-hidden w-full h-120">
+                              <img
+                                src={item?.images}
+                                alt="image"
+                                className="w-full h-auto rounded-2xl object-cover shadow-inner"
+                              />
+                            </div>
             </div>)
             }
           </div>
 
-          {/* Right Column - ICEF Badge + Visual Emphasis */}
-          <div className="flex flex-col items-center justify-center space-y-10">
-            {/* ICEF Accredited Badge */}
+        
+        </div>
+      </div>
+    </section>
+  );
+}
+
+  {/* Right Column - ICEF Badge + Visual Emphasis */}
+          {/* <div className="flex flex-col items-center justify-center space-y-10">
             <div className="relative group">
               <div className="absolute -inset-4 bg-linear-to-r from-blue to-gold rounded-3xl blur-xl opacity-30 group-hover:opacity-60 transition duration-700"></div>
 
@@ -74,7 +87,6 @@ export default function AboutSection({ aboutItems }) {
               </div>
             </div>
 
-            {/* Trust Highlight */}
             <div className="text-center bg-blue text-white p-8 rounded-2xl shadow-xl max-w-md">
               <p className="text-5xl font-black text-gold">22,000+</p>
               <p className="text-xl font-semibold mt-2">
@@ -84,9 +96,4 @@ export default function AboutSection({ aboutItems }) {
                 Since 2006 • Trusted by Thousands
               </p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
+          </div> */}

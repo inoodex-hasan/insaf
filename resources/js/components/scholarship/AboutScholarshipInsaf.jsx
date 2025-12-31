@@ -1,7 +1,8 @@
 import React from "react";
-import { ArrowRight, Users, Globe, Building2, Calendar } from "lucide-react";
+import { ArrowRight, Users, Globe, Building2, Calendar, GraduationCap } from "lucide-react";
 
-export default function AboutScholarshipInsaf() {
+export default function AboutScholarshipInsaf({successcount}) {
+  // console.log(successcount);
   const stats = [
     {
       value: "22,000+",
@@ -58,35 +59,92 @@ export default function AboutScholarshipInsaf() {
 
         {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-16">
-          {stats.map((stat, index) => (
+    
             <div
-              key={index}
+     
               className="group text-center transform hover:scale-110 transition-all duration-500"
             >
               <div className="relative inline-block mb-4">
                 <div className="w-20 h-20 mx-auto bg-gradient-to-br from-[#c3a25d]/10 to-[#283e77]/10 rounded-full flex items-center justify-center group-hover:shadow-2xl transition-shadow">
-                  <stat.icon
-                    className={`w-10 h-10 ${stat.color} group-hover:scale-125 transition-transform`}
+                  <GraduationCap
+                    className={`w-10 h-10 text-blue  group-hover:scale-125 transition-transform`}
                   />
                 </div>
               </div>
 
               <h4 className="text-4xl md:text-5xl font-bold text-[#283e77] mb-2">
-                {stat.value}
+                {successcount.students}+
               </h4>
               <p className="text-sm md:text-base text-gray-600 leading-tight max-w-[180px] mx-auto">
-                {stat.label}
+               Students Assisted
               </p>
             </div>
-          ))}
+            <div
+         
+              className="group text-center transform hover:scale-110 transition-all duration-500"
+            >
+              <div className="relative inline-block mb-4">
+                <div className="w-20 h-20 mx-auto bg-gradient-to-br from-[#c3a25d]/10 to-[#283e77]/10 rounded-full flex items-center justify-center group-hover:shadow-2xl transition-shadow">
+                  <Users
+                    className={`w-10 h-10 text-blue  group-hover:scale-125 transition-transform`}
+                  />
+                </div>
+              </div>
+
+              <h4 className="text-4xl md:text-5xl font-bold text-[#283e77] mb-2">
+                {successcount.partners}+
+              </h4>
+              <p className="text-sm md:text-base text-gray-600 leading-tight max-w-[180px] mx-auto">
+               Partner Institutions
+              </p>
+            </div>
+            <div 
+              className="group text-center transform hover:scale-110 transition-all duration-500"
+            >
+              <div className="relative inline-block mb-4">
+                <div className="w-20 h-20 mx-auto bg-gradient-to-br from-[#c3a25d]/10 to-[#283e77]/10 rounded-full flex items-center justify-center group-hover:shadow-2xl transition-shadow">
+                  <Globe
+                    className={`w-10 h-10 text-blue  group-hover:scale-125 transition-transform`}
+                  />
+                </div>
+              </div>
+
+              <h4 className="text-4xl md:text-5xl font-bold text-[#283e77] mb-2">
+                {successcount.visa_grants}%
+              </h4>
+              <p className="text-sm md:text-base text-gray-600 leading-tight max-w-[180px] mx-auto">
+               Visa Grants
+              </p>
+            </div>
+            <div 
+              className="group text-center transform hover:scale-110 transition-all duration-500"
+            >
+              <div className="relative inline-block mb-4">
+                <div className="w-20 h-20 mx-auto bg-gradient-to-br from-[#c3a25d]/10 to-[#283e77]/10 rounded-full flex items-center justify-center group-hover:shadow-2xl transition-shadow">
+                  <Calendar
+                    className={`w-10 h-10 text-blue  group-hover:scale-125 transition-transform`}
+                  />
+                </div>
+              </div>
+
+              <h4 className="text-4xl md:text-5xl font-bold text-[#283e77] mb-2">
+                {successcount.years}+
+              </h4>
+              <p className="text-sm md:text-base text-gray-600 leading-tight max-w-[180px] mx-auto">
+               Experience Years
+              </p>
+            </div>
+        
         </div>
 
         {/* CTA Button */}
         <div className="text-center">
-          <button className="group inline-flex items-center gap-3 bg-gradient-to-r from-[#c3a25d] to-[#d4b86a] hover:from-[#283e77] hover:to-[#283e77] text-white font-bold text-lg px-10 py-5 rounded-full shadow-2xl hover:shadow-[#c3a25d]/30 transform hover:scale-105 transition-all duration-300">
+          <a href="https://wa.me/8801531385988?text=I%20would%20like%20to%20book%20an%20event"
+                    target="_blank"
+                     className="group inline-flex items-center gap-3 bg-gradient-to-r from-[#c3a25d] to-[#d4b86a] hover:from-[#283e77] hover:to-[#283e77] text-white font-bold text-lg px-10 py-5 rounded-full shadow-2xl hover:shadow-[#c3a25d]/30 transform hover:scale-105 transition-all duration-300">
             Book a Free Consultation
             <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
-          </button>
+          </a>
         </div>
       </div>
     </section>

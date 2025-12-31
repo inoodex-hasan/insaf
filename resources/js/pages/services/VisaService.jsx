@@ -1,5 +1,5 @@
 import React from "react";
-import destinationImg from "../../assets/destination.webp";
+import destinationImg from "../../assets/destination.png";
 import { ArrowRight, GraduationCap } from "lucide-react";
 import Form from "../../components/form/Form";
 import service1 from "../../assets/services/service1.png";
@@ -43,10 +43,12 @@ const VisaService = ({service}) => {
 
               {/* CTA Button */}
               <div className="flex flex-col sm:flex-row gap-6 pt-6">
-                <button className="group inline-flex items-center justify-center gap-4 px-10 py-5 bg-gold hover:bg-[#d4b870] text-white font-bold text-lg rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300">
+                <a href="https://wa.me/8801531385988?text=I%20would%20like%20to%20book%20an%20event"
+                    target="_blank"
+                     className="group inline-flex items-center justify-center gap-4 px-10 py-5 bg-gold hover:bg-[#d4b870] text-white font-bold text-lg rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300">
                   Book a FREE Consultation Now
                   <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
-                </button>
+                </a>
               </div>
             </div>
 
@@ -92,9 +94,9 @@ const VisaService = ({service}) => {
       {/* LEFT CONTENT */}
       <div>
         {/* MAIN TITLE */}
-        {/* <h4 className="text-blue text-lg font-mont font-semibold">
+        <h4 className="text-blue text-3xl font-mont font-semibold">
           {service?.title}
-        </h4> */}
+        </h4>
 
         {/* OPTIONAL IMAGE */}
         {/* {service[0]?.image && (

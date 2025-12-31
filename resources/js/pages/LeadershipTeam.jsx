@@ -4,6 +4,7 @@ import LeadershipTeamMember from "./LeadershipTeamMember";
 import CounselingSection from "../components/CounselingSection";
 import { Crown, Star } from "lucide-react";
 export default function LeadershipTeam({ leaders }) {
+  console.log(leaders);
   return (
     <section className="py-24 px-6 lg:px-8 bg-gradient-to-b from-white to-blue-50">
       <div className="max-w-7xl mx-auto">
@@ -18,8 +19,7 @@ export default function LeadershipTeam({ leaders }) {
             <Star className="w-12 h-12 text-[#c3a25d]" />
           </div>
           <p className="mt-6 text-xl text-gray-700 max-w-3xl mx-auto">
-            Visionary leaders with decades of experience, driving PFEC Global
-            toward excellence
+         At Insaf Education Consultancy, our team is made up of experienced education counselors and dedicated professionals who are passionate about guiding students toward a successful academic future. Each team member brings in-depth knowledge of university admissions, study abroad programs, and career planning.
           </p>
         </div>
 

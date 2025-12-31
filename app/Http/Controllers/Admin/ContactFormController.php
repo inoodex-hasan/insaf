@@ -41,4 +41,11 @@ class ContactFormController extends Controller
 
         return back()->with('success', 'Your message has been sent!');
     }
+
+    public function destroy(ContactForm $contact_form)
+    {
+        $contact_form->delete();
+
+        return back()->with('success', 'Message deleted successfully!');
+    }
 }

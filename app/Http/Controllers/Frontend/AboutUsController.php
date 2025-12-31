@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Models\{Achievement, Review, Team, Testimonial};
+use App\Models\{Achievement, Review, Team, Testimonial, WhyChooseUs};
 use App\Http\Controllers\Controller;
 use Inertia\Inertia;
 
@@ -56,10 +56,13 @@ public function testimonials()
         ->orderBy('created_at', 'desc')
         ->get(['id', 'title', 'description', 'photo_path']);
 
+    $why_choose_us = WhyChooseUs::all();
+
     return Inertia::render('Testimonials', [
         'testimonials' => $testimonials,
         'reviews' => $reviews,
         'awards' => $awards,
+        'whyChooseUs' => $why_choose_us
     ]);
 }
 

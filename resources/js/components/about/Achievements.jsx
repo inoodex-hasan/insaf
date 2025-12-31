@@ -6,10 +6,13 @@ import {
   MapPin,
   Crown,
   Target,
+  Icon,
+  Users2,
 } from "lucide-react";
 import map from "../../assets/about/map.png";
 
-export default function Achievements() {
+export default function Achievements({whyChooseUs}) {
+  // console.log(whyChooseUs);
   const stats = [
     {
       icon: Users,
@@ -34,6 +37,10 @@ export default function Achievements() {
     { name: "Chattogram", top: "78%", left: "68%" },
   ];
 
+  // students
+  // partners 
+  // visa_grants
+  // years
   return (
     <section className="py-24 px-6 lg:px-8 bg-gray-200">
       <div className="max-w-7xl mx-auto">
@@ -52,53 +59,130 @@ export default function Achievements() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left: Stats Grid */}
           <div className="grid grid-cols-2 gap-8">
-            {stats.map((stat, index) => {
-              const Icon = stat.icon;
-              const isGold = stat.color === "gold";
-
-              return (
-                <div
-                  key={index}
+           
+         {/* item two  */}
+                <div 
                   className="group relative bg-blue backdrop-blur-lg rounded-3xl p-10 text-center border border-white/20 hover:border-[#c3a25d]/50 transition-all duration-500 hover:shadow-2xl hover:-translate-y-4"
                 >
                   {/* Glow Effect */}
                   <div
                     className={`absolute -inset-1 rounded-3xl blur-xl opacity-0 group-hover:opacity-50 transition duration-700
-                    ${
-                      isGold
-                        ? "bg-gradient-to-br from-[#c3a25d] to-yellow-400"
-                        : "bg-gradient-to-br from-[#283e77] to-blue-900"
-                    }
+                   
                   `}
                   ></div>
 
                   <div className="relative">
                     <div
-                      className={`w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center shadow-2xl
-                      ${
-                        isGold
-                          ? "bg-gradient-to-br from-[#c3a25d] to-[#d4b870] text-white"
-                          : "bg-gradient-to-br from-white/20 to-white/10 text-[#c3a25d]"
-                      }
-                    `}
+                      className={`w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center shadow-2xl   `}
                     >
-                      <Icon className="w-10 h-10" />
+                      <GraduationCap className="w-10 h-10" />
+                      {/* <Icon className="w-10 h-10" /> */}
                     </div>
 
                     <div
-                      className={`text-5xl font-black ${
-                        isGold ? "text-[#c3a25d]" : "text-white"
-                      } mb-2`}
+                      className={`text-5xl font-black  mb-2`}
                     >
-                      {stat.value}
+                      {whyChooseUs[0]?.students}+
                     </div>
                     <p className="text-blue-100 text-lg font-medium">
-                      {stat.label}
+                      Students Assisted
                     </p>
                   </div>
                 </div>
-              );
-            })}
+
+        {/* item two  */}
+                <div 
+                  className="group relative bg-blue backdrop-blur-lg rounded-3xl p-10 text-center border border-white/20 hover:border-[#c3a25d]/50 transition-all duration-500 hover:shadow-2xl hover:-translate-y-4"
+                >
+                  {/* Glow Effect */}
+                  <div
+                    className={`absolute -inset-1 rounded-3xl blur-xl opacity-0 group-hover:opacity-50 transition duration-700
+                   
+                  `}
+                  ></div>
+
+                  <div className="relative">
+                    <div
+                      className={`w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center shadow-2xl   `}
+                    >
+                      <Users className="w-10 h-10" />
+                      {/* <Icon className="w-10 h-10" /> */}
+                    </div>
+
+                    <div
+                      className={`text-5xl font-black  mb-2`}
+                    >
+                      {whyChooseUs[0]?.partners}+
+                    </div>
+                    <p className="text-blue-100 text-lg font-medium">
+                      Partners Institutions
+                    </p>
+                  </div>
+                </div>
+
+      
+        {/* item three  */}
+                <div 
+                  className="group relative bg-blue backdrop-blur-lg rounded-3xl p-10 text-center border border-white/20 hover:border-[#c3a25d]/50 transition-all duration-500 hover:shadow-2xl hover:-translate-y-4"
+                >
+                  {/* Glow Effect */}
+                  <div
+                    className={`absolute -inset-1 rounded-3xl blur-xl opacity-0 group-hover:opacity-50 transition duration-700
+                   
+                  `}
+                  ></div>
+
+                  <div className="relative">
+                    <div
+                      className={`w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center shadow-2xl   `}
+                    >
+                      <Trophy className="w-10 h-10" />
+                      {/* <Icon className="w-10 h-10" /> */}
+                    </div>
+
+                    <div
+                      className={`text-5xl font-black  mb-2`}
+                    >
+                      {whyChooseUs[0]?.visa_grants}%
+                    </div>
+                    <p className="text-blue-100 text-lg font-medium">
+                     Visa Success Rate
+                    </p>
+                  </div>
+                </div>
+
+
+  {/* item four  */}
+                <div 
+                  className="group relative bg-blue backdrop-blur-lg rounded-3xl p-10 text-center border border-white/20 hover:border-[#c3a25d]/50 transition-all duration-500 hover:shadow-2xl hover:-translate-y-4"
+                >
+                  {/* Glow Effect */}
+                  <div
+                    className={`absolute -inset-1 rounded-3xl blur-xl opacity-0 group-hover:opacity-50 transition duration-700
+                   
+                  `}
+                  ></div>
+
+                  <div className="relative">
+                    <div
+                      className={`w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center shadow-2xl   `}
+                    >
+                      <Crown className="w-10 h-10" />
+                      {/* <Icon className="w-10 h-10" /> */}
+                    </div>
+
+                    <div
+                      className={`text-5xl font-black  mb-2`}
+                    >
+                      {whyChooseUs[0]?.years}+
+                    </div>
+                    <p className="text-blue-100 text-lg font-medium">
+                      Years of Excellence
+                    </p>
+                  </div>
+                </div>
+                
+          
           </div>
 
           {/* Right: Interactive Bangladesh Map */}
@@ -128,14 +212,14 @@ export default function Achievements() {
               ))}
             </div>
 
-            <p className="text-center text-blue-200 mt-8 text-lg">
+            <p className="text-center text-blue-400 mt-8 text-lg">
               4 Strategic Locations Serving Students Nationwide
             </p>
           </div>
         </div>
 
         {/* Final Trust Statement */}
-        <div className="mt-20 text-center">
+        {/* <div className="mt-20 text-center">
           <div className="inline-block bg-gradient-to-r from-[#c3a25d] to-[#d4b870] text-[#283e77] px-12 py-8 rounded-3xl shadow-2xl">
             <p className="text-3xl font-black">
               Trusted by{" "}
@@ -145,7 +229,7 @@ export default function Achievements() {
               Since 2006
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

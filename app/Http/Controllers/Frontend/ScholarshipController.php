@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\{Scholarship, ScholarshipItem};
+use App\Models\{Scholarship, ScholarshipItem, WhyChooseUs};
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -11,12 +11,17 @@ class ScholarshipController extends Controller
 {
     public function index()
     {
+        
+        $successcount = WhyChooseUs::where('is_active', 1)
+                      ->select('students', 'partners', 'visa_grants', 'years')
+                      ->first();
         $scholarships = Scholarship::where('is_active', 1)
             ->select('id', 'title', 'slug', 'country', 'image')
             ->get();
 
         return Inertia::render('Scholarship', [
             'scholarships' => $scholarships,
+            'successcount' => $successcount
         ]);
     }
 
